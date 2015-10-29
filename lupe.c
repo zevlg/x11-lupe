@@ -50,6 +50,7 @@ int iff_mode = 1;		/* != 0  IFF in active */
 int reticle_len = 15;		/* percent of reticle len 0:none 100:to edge */
 int photo_delay = 5;		/* sec. -> millisec. */
 int image_mode = 1;
+int override_redirect_mode = 0;
 
 Display *dsp;
 int scr;
@@ -94,6 +95,7 @@ void usage()
   fprintf(stderr, "written by yav <yav@mte.biglobe.ne.jp>\n");
   fprintf(stderr, "usage: %s [-display DISP] [-geometry WxH+X+Y] [-bw N] [-mag N]\n", *oargv);
   fprintf(stderr, "  [-shape|-noshape] [-reticle|-noreticle] [-hud|-nohud] [-iff|-noiff]\n");
+  fprintf(stderr, "  [-override_redirect|-nooverride_redirect]\n");
   fprintf(stderr, "  [-update milliseconds] [-delay milliseconds] [-timer seconds]\n");
   exit(1);
 }
@@ -268,6 +270,12 @@ void init_screen()
   topwin = XCreateSimpleWindow(dsp, rootwin,
 			       hint.x, hint.y, hint.width, hint.height,
 			       bw, border_pixel, WhitePixel(dsp, scr));
+  if (override_redirect_mode) {
+    XSetWindowAttributes attr;
+    attr.override_redirect = 1;
+    XChangeWindowAttributes(dsp, topwin, CWOverrideRedirect, &attr);
+  }
+        
   XSetWindowBorderPixmap(dsp, topwin, CopyFromParent);
   XSetWindowBackgroundPixmap(dsp, topwin, None);
   XSelectInput(dsp, topwin, ExposureMask|ButtonPressMask|StructureNotifyMask|

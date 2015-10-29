@@ -61,6 +61,8 @@ static OPTION opttbl[] = {
   {"-iff",	OPT_SET_INT,	(VOIDPTR)&iff_mode,		1},
   {"-noiff",	OPT_SET_INT,	(VOIDPTR)&iff_mode,		0},
   {"-noimage",	OPT_SET_INT,	(VOIDPTR)&image_mode,		0},
+  {"-override_redirect",	OPT_SET_INT,	(VOIDPTR)&override_redirect_mode,		1},
+  {"-nooverride_redirect",	OPT_SET_INT,	(VOIDPTR)&override_redirect_mode,		0},
   {NULL,	0,		NULL,				0}
 };
 

@@ -21,5 +21,6 @@ extern int iff_mode;
 extern int reticle_len;
 extern int photo_delay;
 extern int image_mode;
+extern int override_redirect_mode;
 
 /* End of file */
