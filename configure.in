@@ -1,0 +1,26 @@
+dnl $Header: /usr/home/yav/lupe/RCS/configure.in,v 1.1 1998/08/26 07:39:55 yav Exp $
+dnl lupe configure template for autoconf
+dnl written by yav <yav@mte.biglobe.ne.jp>
+
+AC_INIT(lupe.doc)
+
+dnl Checks for programs
+dnl AC_ISC_POSIX
+
+dnl Checks for libraries
+
+dnl Checks for header files
+AC_CONFIG_HEADER(config.h)
+AC_HEADER_STDC
+AC_HEADER_TIME
+AC_CHECK_HEADERS(stdlib.h string.h strings.h stdarg.h varargs.h signal.h)
+
+dnl Checks for typedefs
+AC_TYPE_SIGNAL
+
+dnl Checks for structures
+
+dnl Checks for library functions
+AC_CHECK_FUNCS(index rindex bcopy bcmp bzero strdup usleep gettimeofday)
+
+AC_OUTPUT()
