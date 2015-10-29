@@ -215,6 +215,7 @@ void init_screen()
   XSizeHints hint;
   unsigned long border_pixel;
   XColor col;
+  XGCValues gcval;
   Pixmap icon_pixmap;
   int event_base, error_base;
   static char dash_list[2] = {1,1};
@@ -287,7 +288,8 @@ void init_screen()
   XSetSubwindowMode(dsp, gc, IncludeInferiors);
   outgc = XCreateGC(dsp, topwin, 0, NULL);
   XSetForeground(dsp, outgc, BlackPixel(dsp, scr));
-  linegc = XCreateGC(dsp, topwin, 0, NULL);
+  gcval.function = GXinvert;
+  linegc = XCreateGC(dsp, topwin, GCFunction, &gcval);
   XSetLineAttributes(dsp, linegc, 0, LineDoubleDash, CapButt, JoinMiter);
   XSetDashes(dsp, linegc, 0, dash_list, sizeof(dash_list));
   indicator_setup();

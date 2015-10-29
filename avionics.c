@@ -87,8 +87,10 @@ void indicator_setup()
 {
   XColor col;
   XFontStruct *fsp;
+  XGCValues gcval;
   
-  hudgc = XCreateGC(dsp, topwin, 0, NULL);
+  gcval.function = GXinvert;
+  hudgc = XCreateGC(dsp, topwin, GCFunction, &gcval);
   if (str_hudfg != NULL) {
     XParseColor(dsp, DefaultColormap(dsp, scr), str_hudfg, &col);
     XAllocColor(dsp, DefaultColormap(dsp, scr), &col);
@@ -334,7 +336,8 @@ void target_pixel_info()
     XGetSubImage(dsp, srcpixmap, srcw/2, srch/2, 1, 1, -1, ZPixmap, img, 0, 0);
   col.pixel = XGetPixel(img, 0, 0);
   XQueryColor(dsp, DefaultColormap(dsp, scr), &col);
-  sprintf(buf, "%3ld %04x %04x %04x", col.pixel, col.red, col.green, col.blue);
+  sprintf(buf, "%3ld (%04x, %04x, %04x) #%02x%02x%02x",
+          col.pixel, col.red, col.green, col.blue, col.red&0xff, col.green&0xff, col.blue&0xff);
   draw_hud_string(PERCENT(dstw, 15), PERCENT(dsth, 25), buf);
 }
 
