@@ -1,0 +1,40 @@
+/* $Header: /usr/home/yav/lupe/RCS/config.h.in,v 1.1 1998/08/26 07:39:10 yav Exp $
+ * OS depend configuration for lupe
+ * written by yav <yav@mte.biglobe.ne.jp>
+ */
+
+#ifndef LUPE_CONFIG_H
+#define LUPE_CONFIG_H
+
+#undef STDC_HEADERS
+
+#undef HAVE_STDLIB_H
+#undef HAVE_STRING_H
+#undef HAVE_STRINGS_H
+#undef HAVE_STDARG_H
+#undef HAVE_VARARGS_H
+
+#undef TIME_WITH_SYS_TIME
+#undef HAVE_SYS_TIME_H
+#undef HAVE_TIME_H
+
+#undef HAVE_SIGNAL_H
+#undef RETSIGTYPE
+
+#undef HAVE_INDEX
+#undef HAVE_RINDEX
+#undef HAVE_BCOPY
+#undef HAVE_BCMP
+#undef HAVE_BZERO
+#undef HAVE_STRDUP
+
+#undef HAVE_USLEEP
+#undef HAVE_GETTIMEOFDAY
+
+#ifndef USE_SHAPE
+#define USE_SHAPE 1
+#endif
+
+#endif /* LUPE_CONFIG_H */
+
+/* End of file */
