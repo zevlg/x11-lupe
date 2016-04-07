@@ -94,6 +94,7 @@ void usage()
   fprintf(stderr, "* Lupe version %s *\n", LUPE_VERSION);
   fprintf(stderr, "written by yav <yav@mte.biglobe.ne.jp>\n");
   fprintf(stderr, "usage: %s [-display DISP] [-geometry WxH+X+Y] [-bw N] [-mag N]\n", *oargv);
+  fprintf(stderr, "  [-font <FONT>]\n");
   fprintf(stderr, "  [-shape|-noshape] [-reticle|-noreticle] [-hud|-nohud] [-iff|-noiff]\n");
   fprintf(stderr, "  [-override_redirect|-nooverride_redirect]\n");
   fprintf(stderr, "  [-update milliseconds] [-delay milliseconds] [-timer seconds]\n");

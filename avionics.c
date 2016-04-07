@@ -337,7 +337,7 @@ void target_pixel_info()
   col.pixel = XGetPixel(img, 0, 0);
   XQueryColor(dsp, DefaultColormap(dsp, scr), &col);
   sprintf(buf, "%3ld (%04x, %04x, %04x) #%02x%02x%02x",
-          col.pixel, col.red, col.green, col.blue, col.red&0xff, col.green&0xff, col.blue&0xff);
+          col.pixel, col.red, col.green, col.blue, col.red>>8, col.green>>8, col.blue>>8);
   draw_hud_string(PERCENT(dstw, 15), PERCENT(dsth, 25), buf);
 }
 
