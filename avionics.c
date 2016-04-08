@@ -89,7 +89,7 @@ void indicator_setup()
   XFontStruct *fsp;
   XGCValues gcval;
   
-  gcval.function = GXinvert;
+  gcval.function = GXxor;
   hudgc = XCreateGC(dsp, topwin, GCFunction, &gcval);
   if (str_hudfg != NULL) {
     XParseColor(dsp, DefaultColormap(dsp, scr), str_hudfg, &col);
