@@ -13,6 +13,15 @@ char rcsid_option[] = "$Id: option.c,v 1.3 1998/08/26 07:37:01 yav Exp $";
 #include <stdlib.h>
 #endif
 
+/* for strcmp */
+#ifdef HAVE_STRING_H
+#include <string.h>
+#else
+#ifdef HAVE_STRINGS_H
+#include <strings.h>
+#endif
+#endif
+
 #include "extern.h"
 
 #define OPT_FUNC	1

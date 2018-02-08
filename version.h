@@ -2,6 +2,6 @@
  * Lupe version define
  */
 
-#define LUPE_VERSION "0.08c"
+#define LUPE_VERSION "0.09a"
 
 /* End of file */
