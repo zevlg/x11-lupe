@@ -172,7 +172,7 @@ void draw_reticle(x0, y0)
     XDrawLine(dsp, dstpixmap, linegc, x, y0, x+i-1, y0);
 }
 
-void draw_altitule(x0, y0)
+void draw_altitude(x0, y0)
      int x0;
      int y0;
 {
@@ -336,8 +336,9 @@ void target_pixel_info()
     XGetSubImage(dsp, srcpixmap, srcw/2, srch/2, 1, 1, -1, ZPixmap, img, 0, 0);
   col.pixel = XGetPixel(img, 0, 0);
   XQueryColor(dsp, DefaultColormap(dsp, scr), &col);
-  sprintf(buf, "%3ld (%04x, %04x, %04x) #%02x%02x%02x",
-          col.pixel, col.red, col.green, col.blue, col.red>>8, col.green>>8, col.blue>>8);
+  sprintf(buf, "%3ld (%04x, %04x, %04x) #%02x%02x%02x at (x:%d, y:%d)",
+          col.pixel, col.red, col.green, col.blue, col.red>>8, col.green>>8, col.blue>>8,
+          srcx, srcy);
   draw_hud_string(PERCENT(dstw, 15), PERCENT(dsth, 25), buf);
 }
 
@@ -352,7 +353,7 @@ void draw_indicator()
       draw_reticle(x0, y0);
     if (hud_mode) {
       draw_attitude(x0, y0);
-      draw_altitule(x0, y0);
+      draw_altitude(x0, y0);
       draw_direction(x0, y0);
     }
     if (iff_mode)
