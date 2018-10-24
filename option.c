@@ -6,6 +6,7 @@
 char rcsid_option[] = "$Id: option.c,v 1.3 1998/08/26 07:37:01 yav Exp $";
 
 #include <stdio.h>
+#include <string.h>
 #include "config.h"
 
 /* for strtol prototype */
